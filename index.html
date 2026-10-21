@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png">
   <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 
-                                                      <!--SEO:START-->
+                                                        <!--SEO:START-->
   <title>Playground — Design &amp; Graphic Experiments | Ajay K K</title>
   <meta name="description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
   <link rel="canonical" href="/playground">
@@ -2268,9 +2268,14 @@
       }
 
       /* ── featured work responsive (tablet) ── */
-      /* the paper plane's opening arc is fixed-size (tuned to the 1440 canvas);
-         on narrow screens its trail crosses the intro copy — hide the decoration */
-      .plane-fly { display: none; }
+      .plane-fly {
+        display: block !important;
+        max-width: 100vw !important;
+        overflow: hidden !important;
+      }
+      .plane-sprite {
+        width: 48px !important;
+      }
       .featured-work { padding-top: 60px; padding-bottom: 160px; }
       .featured-heading { font-size: clamp(24px, 4vw, 36px); margin-bottom: 44px; }
       .logo-marquee-wrap { width: min(620px, 86vw); margin-bottom: 72px; }
@@ -2581,9 +2586,16 @@
         border-radius: 20px !important;
         display: block !important;
         position: relative !important;
-        transform: none !important;
-        opacity: 1 !important;
         margin: 0 auto !important;
+        --reveal: 0;
+        transform: scale(calc(0.74 + 0.26 * var(--reveal))) !important;
+        transform-origin: center center !important;
+        opacity: calc(0.35 + 0.65 * var(--reveal)) !important;
+        will-change: transform, opacity;
+        transition: box-shadow 0.3s ease;
+      }
+      .project-tile:active {
+        transform: scale(calc(0.96 * (0.74 + 0.26 * var(--reveal)))) !important;
       }
       .project-tile.tile-square,
       .tiles-row.tiles-row-3 .project-tile,
