@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOLICE — Complete Brand Guidelines &amp; Logo Identity Manual | Ajay K K</title>
+  <meta name="description" content="Complete multi-page brand guidelines manual and visual identity system for KOLICE Popsicles &amp; Ice Cream by Ajay K K. Features logo geometry, color architecture, stationery, packaging, and outdoor campaigns.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png">
+  <link rel="apple-touch-icon" href="/assets/favicon-180.png">
+  <meta name="theme-color" content="#0b0f19">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KOLICE — Complete Brand Guidelines &amp; Logo Identity Manual | Ajay K K">
+  <meta property="og:description" content="Explore the full 18-section brand identity guidelines manual for KOLICE Popsicles &amp; Ice Cream.">
+  <meta property="og:image" content="/assets/works/work-kouce-hero-logo.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-surface: #111827;
+      --bg-card: #1f2937;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-purple: #7c3aed;
+      --accent-hover: #6d28d9;
+      --accent-cyan: #38bdf8;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-hover: rgba(255, 255, 255, 0.22);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--bg-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Reading Progress Bar */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #7c3aed, #38bdf8, #10b981);
+      z-index: 10000;
+      transition: width 0.08s ease-out;
+    }
+
+    /* Sticky Navigation Header */
+    .reader-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 9999;
+      background: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.06);
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--border-hover);
+      transform: translateX(-2px);
+    }
+
+    .file-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .file-icon {
+      color: #ef4444;
+      flex-shrink: 0;
+    }
+
+    .file-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+    }
+
+    .file-chip {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Chapter Navigation Pills */
+    .chapter-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 4px 0;
+      scrollbar-width: none;
+      max-width: 620px;
+    }
+
+    .chapter-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chapter-pill {
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .chapter-pill:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border-color: var(--border-hover);
+    }
+
+    .chapter-pill.is-active {
+      background: var(--accent-purple) !important;
+      border-color: var(--accent-purple) !important;
+      color: #ffffff !important;
+      box-shadow: 0 2px 10px rgba(124, 58, 237, 0.4);
+    }
+
+    /* Header Right Actions */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .zoom-group {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .zoom-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      padding: 6px 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+
+    .zoom-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .zoom-label {
+      font-size: 11px;
+      font-weight: 700;
+      min-width: 44px;
+      text-align: center;
+      color: var(--text-muted);
+      user-select: none;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: var(--accent-purple);
+      border: 1px solid var(--accent-purple);
+      color: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .download-btn:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Document Scrolling Stage */
+    .document-stage-wrapper {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 80px;
+    }
+
+    .paper-stage {
+      width: 100%;
+      max-width: 1080px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      transform-origin: top center;
+      transition: max-width 0.25s ease;
+    }
+
+    .document-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Floating Page Pill Indicator */
+    .floating-page-indicator {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 900;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .page-num-chip {
+      color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .back-to-top-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin-left: 6px;
+      padding: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .back-to-top-btn:hover {
+      color: #ffffff;
+    }
+
+    /* Footer Meta */
+    .reader-footer {
+      width: 100%;
+      max-width: 1080px;
+      margin-top: 20px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 12.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-link {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+      .reader-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px 14px;
+      }
+      .header-left, .header-right {
+        justify-content: space-between;
+      }
+      .chapter-nav {
+        max-width: 100%;
+        order: 3;
+      }
+      .paper-stage {
+        border-radius: 6px;
+      }
+      .document-stage-wrapper {
+        padding: 20px 8px 60px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .file-chip {
+        display: none;
+      }
+      .file-title {
+        font-size: 12px;
+      }
+      .download-btn span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="scroll-progress-bar" id="progressBar"></div>
+
+  <!-- Sticky Top Header -->
+  <header class="reader-header">
+    <div class="header-left">
+      <a href="/" class="back-btn" title="Back to Portfolio">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Portfolio</span>
+      </a>
+
+      <div class="file-badge-wrap">
+        <svg class="file-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <span class="file-title">KOLICE_Brand_Guidelines.pdf</span>
+        <span class="file-chip">18 SECTIONS</span>
+      </div>
+    </div>
+
+    <!-- Chapter Navigation Pills -->
+    <nav class="chapter-nav" aria-label="Brand manual chapters">
+      <button type="button" class="chapter-pill is-active" data-pct="0">Logo &amp; Concept</button>
+      <button type="button" class="chapter-pill" data-pct="15">Symbol &amp; Grid</button>
+      <button type="button" class="chapter-pill" data-pct="30">Color &amp; Typography</button>
+      <button type="button" class="chapter-pill" data-pct="48">Stationery &amp; Packs</button>
+      <button type="button" class="chapter-pill" data-pct="68">Outdoor Billboards</button>
+      <button type="button" class="chapter-pill" data-pct="84">Transit Posters</button>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-right">
+      <div class="zoom-group">
+        <button type="button" class="zoom-btn" id="zoomOutBtn" title="Zoom Out (-)" aria-label="Zoom Out">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <span class="zoom-label" id="zoomLabel">100%</span>
+        <button type="button" class="zoom-btn" id="zoomInBtn" title="Zoom In (+)" aria-label="Zoom In">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button type="button" class="zoom-btn" id="zoomFitBtn" title="Fit Width" aria-label="Fit Width">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        </button>
+      </div>
+
+      <a href="/assets/works/kouce-brand-identity.pdf" download="KOLICE-Brand-Guidelines.pdf" class="download-btn" title="Download High-Res PDF Document">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Download PDF</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Document Stage -->
+  <main class="document-stage-wrapper">
+    <div class="paper-stage" id="paperStage">
+      <img class="document-image" id="docImage" src="/assets/works/work-kouce-brand-identity.jpg" alt="KOLICE — Complete Brand Guidelines and Logo Identity System" loading="eager">
+    </div>
+
+    <!-- Bottom Meta Footer -->
+    <footer class="reader-footer">
+      <div>
+        <strong>KOLICE Popsicles &amp; Ice Cream</strong> &middot; Multi-Page Vector Identity System &middot; 1440 &times; 18,080 px
+      </div>
+      <div class="footer-links">
+        <a href="/assets/works/kouce-brand-identity.pdf" download="KOLICE-Brand-Guidelines.pdf" class="footer-link">Download Vector PDF ↗</a>
+        <a href="/" class="footer-link">Return to Portfolio ↗</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating Page Indicator & Back to Top -->
+  <div class="floating-page-indicator" id="pageIndicatorWrap">
+    <span>Reading</span>
+    <span class="page-num-chip" id="pageChip">Page 1 / 18</span>
+    <button type="button" class="back-to-top-btn" id="backToTopBtn" title="Scroll to Top" aria-label="Scroll to Top">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      const progressBar = document.getElementById('progressBar');
+      const paperStage = document.getElementById('paperStage');
+      const zoomLabel = document.getElementById('zoomLabel');
+      const zoomInBtn = document.getElementById('zoomInBtn');
+      const zoomOutBtn = document.getElementById('zoomOutBtn');
+      const zoomFitBtn = document.getElementById('zoomFitBtn');
+      const pageChip = document.getElementById('pageChip');
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      const chapterPills = document.querySelectorAll('.chapter-pill');
+
+      // Zoom Controller
+      const ZOOM_LEVELS = [700, 850, 1080, 1300, 1550, 1850];
+      const ZOOM_LABELS = ['65%', '80%', '100%', '120%', '145%', '170%'];
+      let zoomIdx = 2; // 1080px = 100%
+
+      function updateZoom() {
+        paperStage.style.maxWidth = ZOOM_LEVELS[zoomIdx] + 'px';
+        zoomLabel.textContent = ZOOM_LABELS[zoomIdx];
+      }
+
+      zoomInBtn.addEventListener('click', () => {
+        if (zoomIdx < ZOOM_LEVELS.length - 1) {
+          zoomIdx++;
+          updateZoom();
+        }
+      });
+
+      zoomOutBtn.addEventListener('click', () => {
+        if (zoomIdx > 0) {
+          zoomIdx--;
+          updateZoom();
+        }
+      });
+
+      zoomFitBtn.addEventListener('click', () => {
+        zoomIdx = 2;
+        paperStage.style.maxWidth = '100%';
+        zoomLabel.textContent = 'Fit';
+      });
+
+      // Chapter Navigation Smooth Scroll
+      chapterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          chapterPills.forEach(p => p.classList.remove('is-active'));
+          pill.classList.add('is-active');
+          const pct = parseFloat(pill.getAttribute('data-pct')) / 100;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          window.scrollTo({
+            top: maxScroll * pct + 20,
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Back to Top Button
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Scroll Event: Update Progress Bar & Page Indicator
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (maxScroll > 0) {
+          const scrollPct = Math.min(1, Math.max(0, scrollTop / maxScroll));
+          progressBar.style.width = (scrollPct * 100) + '%';
+          
+          // Page number calculation (18 sections)
+          const curPage = Math.min(18, Math.max(1, Math.round(scrollPct * 17) + 1));
+          pageChip.textContent = `Page ${curPage} / 18 (${Math.round(scrollPct * 100)}%)`;
+
+          // Active chapter update
+          const curPct100 = scrollPct * 100;
+          chapterPills.forEach((p, idx) => {
+            const pctVal = parseFloat(p.getAttribute('data-pct'));
+            const nextPill = chapterPills[idx + 1];
+            const nextPctVal = nextPill ? parseFloat(nextPill.getAttribute('data-pct')) : 101;
+            const isActive = curPct100 >= pctVal - 5 && curPct100 < nextPctVal - 5;
+            p.classList.toggle('is-active', isActive);
+          });
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
