@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png">
   <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 
-                                                    <!--SEO:START-->
+                                                      <!--SEO:START-->
   <title>Playground — Design &amp; Graphic Experiments | Ajay K K</title>
   <meta name="description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
   <link rel="canonical" href="/playground">
@@ -2484,32 +2484,54 @@
         font-size: 13px;   /* matches the "Hello, I'm…" eyebrow's mobile size */
       }
 
-      /* smaller, corner-tucked sun on mobile so the much-bigger header has room
-         up top; the sky group (sun + clouds + moon) rides high in the corner. */
+      /* Mobile Hero Alignment: clean layout, perfectly centered in viewport with no wave overlap */
+      .hero {
+        height: 100svh !important;
+        min-height: 100svh !important;
+        position: sticky !important;
+        top: 0 !important;
+        overflow: hidden !important;
+      }
       .hero-content {
-        --sun-w: clamp(258px, 66vw, 340px);
-        /* left pad clears the vertical label's gutter; the label reads it back to
-           park itself 16px from the viewport edge, so the two stay in sync */
-        --col-pad-l: 64px;
-        /* iOS Safari's toolbars make the visible (svh) height short, so the header
-           sits just under the sun — NOT pushed far down. The +45 constant is tuned
-           so a bigger sun bleeds further into the top-right corner instead of
-           moving the header. Bottom pad keeps the recorder clear of the sky-band. */
-        padding: calc(var(--sun-w) * 0.5 + 45px) 24px 124px var(--col-pad-l);
+        --sun-w: clamp(230px, 62vw, 300px);
+        --col-pad-l: 60px;
+        height: 100svh !important;
+        min-height: 100svh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding: calc(64px + env(safe-area-inset-top, 16px)) 20px 48px var(--col-pad-l) !important;
+        box-sizing: border-box !important;
       }
       /* nudge the sky group down so it sits just below the nav buttons */
-      .sun-group, .hero-cloud, .moon-group { transform: translateY(70px); }
+      .sun-group, .hero-cloud, .moon-group { transform: translateY(60px); }
 
-      .recorder {
-        transform: scale(0.66);
-        transform-origin: top left;    /* keep the left edge fixed when scaling */
-        /* was `auto`, which bottom-pinned the recorder and dumped ALL the column's
-           spare height into this one gap — fine on a 667px phone, but it grew to
-           ~170px on a tall viewport and the hero read as two split-apart blocks.
-           A bounded gap keeps eyebrow → header → recorder reading as one group at
-           any height; the leftover space now falls below, into the sky art. */
-        margin: clamp(24px, 4.5vh, 56px) 0 0;
+      .hero-eyebrow {
+        margin-bottom: 12px !important;
       }
+      .h-line {
+        font-size: clamp(38px, 12vw, 56px) !important;
+        line-height: 1.05 !important;
+      }
+      .recorder {
+        transform: scale(0.68) !important;
+        transform-origin: left center !important;
+        margin: 20px 0 0 !important;
+        position: relative !important;
+        z-index: 10 !important;
+      }
+      .projects {
+        margin-top: 0 !important;
+        padding: 80px 20px 100px !important;
+        position: relative !important;
+        z-index: 2 !important;
+      }
+      .sky-band {
+        top: -46px !important;
+        left: 0 !important;
+        width: 100% !important;
+      }
+
 
       /* ── featured work mobile ── */
       .featured-work { padding-top: 48px; padding-bottom: 120px; }

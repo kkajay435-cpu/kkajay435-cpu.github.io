@@ -1567,41 +1567,72 @@
       .nav-id, .avail-tag, .avail-dot, .nav-wave { display: none; }  /* drop avatar + music */
       .nav-link { display: none; }        /* Work/About/Playground live in the overlay */
 
-      #nav { gap: 10px; }
+      #nav {
+        gap: 10px;
+        padding: 16px 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
       /* the three controls each take the desktop day/night button's disc — an opaque
          white (day) / navy (night) circle with a soft border + inset shadow. No glass.
          Same tokens as .day-toggle / .nav-wave, so mobile matches desktop exactly. */
       .nav-burger,
       .nav-cta,
+      .nav-cta.nav-cta-whatsapp,
       .day-toggle {
         background: var(--toggle-track);
         border: 1px solid var(--toggle-border);
         box-shadow: inset 0 1px 3px rgba(0,0,0,0.10);
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+        box-sizing: border-box !important;
       }
-      .nav-burger:hover, .nav-cta:hover { transform: scale(1.06); }
-      .nav-burger:active, .nav-cta:active { transform: scale(0.94); }
+      .nav-burger:hover, .nav-cta:hover, .day-toggle:hover { transform: scale(1.06); }
+      .nav-burger:active, .nav-cta:active, .day-toggle:active { transform: scale(0.94); }
 
       /* hamburger → far left, pushes the rest right */
       .nav-burger {
-        display: flex;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         order: -1;
         margin-right: auto;
-        width: 34px; height: 34px;
+        padding: 0;
       }
 
-      /* "Work with me" → icon-only disc */
-      .nav-cta {
+      /* WhatsApp button → icon-only disc perfectly aligned with day/night toggle */
+      .nav-cta,
+      .nav-cta.nav-cta-whatsapp {
         order: 1;
-        width: 34px; height: 34px;
-        min-width: 34px;
-        padding: 0;
-        gap: 0;
-        justify-content: center;
-        border-radius: 50%;
-        font-size: 0;                     /* hide the label, keep the email icon */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+        border-radius: 50% !important;
+        font-size: 0 !important;
+        line-height: 1 !important;
+        text-decoration: none !important;
+        vertical-align: middle !important;
       }
-      .nav-cta img, .nav-cta svg { width: 20px; height: 20px; }
+      .nav-cta span,
+      .nav-cta.nav-cta-whatsapp span {
+        display: none !important;
+      }
+      .nav-cta img,
+      .nav-cta svg,
+      .nav-cta-wa-icon {
+        width: 20px !important;
+        height: 20px !important;
+        margin: 0 !important;
+        display: block !important;
+        flex-shrink: 0 !important;
+      }
 
       /* the disc is opaque now, so its icons track the THEME (not the backdrop):
          dark on the white day disc, cream on the navy night disc — exactly like the
@@ -1611,13 +1642,23 @@
       body.night #nav .nav-burger { color: var(--c-cream-2); }
       body.night #nav .nav-cta img { filter: invert(1) brightness(1.8); }
 
-      /* menu open: the burger keeps its disc (matching the other controls) and morphs
-         to the close X. The X uses the theme colour above — dark on the white day
-         disc, cream on the navy night disc — so it reads on the disc over the overlay.
-         (These win over the always-cream #nav.menu-open rule via the extra type
-         selector.) The disc sits above the overlay through that rule's z-index. */
-
-      .nav-side.right { order: 2; }        /* day/night toggle on the far right */
+      .nav-side.right {
+        order: 2;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .day-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+      }
 
       /* ── case study: Back replaces the hamburger ──
          Inside a case study there is one obvious move — get out — so the burger
