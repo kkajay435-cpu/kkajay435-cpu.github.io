@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png">
   <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 
-                                                  <!--SEO:START-->
+                                                    <!--SEO:START-->
   <title>Playground — Design &amp; Graphic Experiments | Ajay K K</title>
   <meta name="description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
   <link rel="canonical" href="/playground">
@@ -2532,32 +2532,70 @@
       .client-logo.logo-pga       { height: 43px; }
       .client-logo.logo-jumpable  { height: 41px; }
       .client-logo.logo-vibes     { height: 12px; }
-      .tiles-row { flex-direction: column; align-items: center; gap: 24px; }
+      .tiles-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+        width: 100% !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
       .project-tile,
       .project-tile.tile-wide,
-      .project-tile.tile-narrow {
+      .project-tile.tile-narrow,
+      .project-tile.tile-full,
+      .project-tile.tile-logo,
+      .project-tile.tile-pkg {
+        flex: none !important;
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
         width: 100% !important;
-        max-width: 440px;
-        height: auto !important;
+        max-width: 440px !important;
         aspect-ratio: 827 / 1024 !important;
-        border-radius: 20px;
+        height: auto !important;
+        min-height: 380px !important;
+        border-radius: 20px !important;
+        display: block !important;
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+        margin: 0 auto !important;
       }
-      .project-tile.tile-square {
+      .project-tile.tile-square,
+      .tiles-row.tiles-row-3 .project-tile,
+      .project-tile.tile-logo.tile-logo-single {
         aspect-ratio: 1 / 1 !important;
+        min-height: 320px !important;
       }
-      .project-tiles { padding: 0 20px; gap: 24px; }
+      .project-tiles { padding: 0 16px !important; gap: 20px !important; width: 100% !important; box-sizing: border-box !important; }
+      .brand-group { gap: 24px !important; margin-bottom: 48px !important; width: 100% !important; }
+      .brand-group-header { margin: 12px auto 4px !important; padding: 0 16px !important; }
+      .brand-group-title { font-size: 28px !important; letter-spacing: -0.8px !important; }
+      .brand-group-sub { font-size: 13.5px !important; line-height: 1.45 !important; }
+      .brand-filter-bar {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        padding: 6px 16px 14px !important;
+        gap: 8px !important;
+        margin: 0 auto 36px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .brand-filter-bar::-webkit-scrollbar { display: none; }
+      .brand-filter-pill {
+        flex-shrink: 0 !important;
+        font-size: 12px !important;
+        padding: 8px 14px !important;
+        white-space: nowrap !important;
+      }
 
-      /* stacked column: reveal each tile on its own (one by one) instead of scaling
-         the whole row (two tiles) at once. Neutralise the row-level transform and
-         move the same scrub onto each tile, driven by its own --reveal (set in JS). */
-      .tiles-row { transform: none; opacity: 1; will-change: auto; }
-      .project-tile {
-        --reveal: 0;
-        transform: scale(calc(0.5 + 0.5 * var(--reveal)));
-        transform-origin: center center;
-        opacity: calc(0.35 + 0.65 * var(--reveal));
-        will-change: transform, opacity;
-      }
 
       /* ── testimonials mobile ── */
       .testimonials { padding-top: 84px; }
