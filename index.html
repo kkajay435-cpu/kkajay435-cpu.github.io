@@ -10,23 +10,23 @@
   <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon-180.png">
   <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 
-                                                        <!--SEO:START-->
-  <title>Playground — Design &amp; Graphic Experiments | Ajay K K</title>
-  <meta name="description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
-  <link rel="canonical" href="/playground">
+                                                          <!--SEO:START-->
+  <title>Ajay K K — Graphics Designer &amp; Brand Strategist | Portfolio</title>
+  <meta name="description" content="Independent graphic designer in Kozhikode, Kerala — specializing in branding, packaging, poster design, and visual identity. Explore selected works and brand systems.">
+  <link rel="canonical" href="/">
   <meta name="theme-color" content="#fff9f1">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ajay K K">
-  <meta property="og:title" content="Playground — Design &amp; Graphic Experiments | Ajay K K">
-  <meta property="og:description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
-  <meta property="og:url" content="/playground">
+  <meta property="og:title" content="Ajay K K — Graphics Designer &amp; Brand Strategist | Portfolio">
+  <meta property="og:description" content="Independent graphic designer in Kozhikode, Kerala — specializing in branding, packaging, poster design, and visual identity. Explore selected works and brand systems.">
+  <meta property="og:url" content="/">
   <meta property="og:image" content="/assets/imgProfilePicture.jpg">
   <meta property="og:image:width" content="856">
   <meta property="og:image:height" content="1024">
   <meta property="og:image:alt" content="Ajay K K — Graphics Designer, Kozhikode, Kerala">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Playground — Design &amp; Graphic Experiments | Ajay K K">
-  <meta name="twitter:description" content="Interactive visual experiments, packaging design, branding studies, and typography — where design meets impact. A graphic designer's playground by Ajay K K.">
+  <meta name="twitter:title" content="Ajay K K — Graphics Designer &amp; Brand Strategist | Portfolio">
+  <meta name="twitter:description" content="Independent graphic designer in Kozhikode, Kerala — specializing in branding, packaging, poster design, and visual identity. Explore selected works and brand systems.">
   <meta name="twitter:image" content="/assets/imgProfilePicture.jpg">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"#person","name":"Ajay K K","jobTitle":"Graphics Designer","url":"/","image":"/assets/imgProfilePicture.jpg","address":{"@type":"PostalAddress","addressLocality":"Kozhikode","addressRegion":"Kerala","addressCountry":"India"},"sameAs":["https://www.behance.net/ajayk14"],"knowsAbout":["Graphic Design","Packaging Design","Brand Identity","Typography","Poster Design","Illustration"],"description":"Independent graphic designer in Kozhikode, Kerala — specializing in branding, packaging, poster design, and visual identity."}]}
@@ -43,18 +43,18 @@
       var P2H = { 
         '/about': '#about', '/about/': '#about', '/about/index.html': '#about',
         '/playground': '#playground', '/playground/': '#playground', '/playground/index.html': '#playground', '/playground.html': '#playground',
+        '/work': '#work', '/work/': '#work', '/work/index.html': '#work',
         '/work/hatcha': '#hatcha', '/work/hatcha/': '#hatcha', '/work/hatcha/index.html': '#hatcha',
         '/work/fireflut': '#fireflut', '/work/fireflut/': '#fireflut', '/work/fireflut/index.html': '#fireflut',
         '/work/existence': '#existence', '/work/existence/': '#existence', '/work/existence/index.html': '#existence',
         '/work/jumpable': '#jumpable', '/work/jumpable/': '#jumpable', '/work/jumpable/index.html': '#jumpable'
       };
       var H2P = {}; Object.keys(P2H).forEach(function (p) { H2P[P2H[p]] = p; });
+      H2P['#work'] = '/#work';
       function token() {
         var p = location.pathname.replace(/\/+$/, '') || '/';
         if (P2H[p]) return P2H[p];
         if (location.hash) return location.hash;
-        // Default to #playground for root / index.html load since this is the playground clone
-        if (p === '/' || p.endsWith('/index.html') || p.endsWith('index.html')) return '#playground';
         return '';
       }
       function fire() { window.dispatchEvent(new HashChangeEvent('hashchange')); }
@@ -71,10 +71,7 @@
     (function () {
       try {
         var p = window.route.H2P[location.hash];
-        if (p) history.replaceState(null, '', p);
-        else if (!location.hash && (location.pathname === '/' || location.pathname.endsWith('index.html'))) {
-          try { history.replaceState(null, '', '/playground'); } catch(e) {}
-        }
+        if (p && location.hash !== '#work') history.replaceState(null, '', p);
       } catch(e) {}
     })();
   </script>
@@ -6045,7 +6042,7 @@
        Staggered brick grid: full-width intro band, then 10 equally-sized
        4:3 tiles whose 2nd/3rd columns are offset down so the rows weave
        (see .pg-grid / .pg-tile:nth-of-type stagger). ═════════════════════ -->
-  <div id="playground-view">
+  <div id="playground-view" hidden>
     <section class="playground pg-flow" aria-label="Playground — motion and 3D experiments">
       <h1 class="sr-only">Playground — design and code experiments by Ajay K K</h1>
       <!-- 3D coverflow carousel. Cards + dots are built by JS from the DATA
@@ -10715,9 +10712,13 @@
         if (fireflutView) fireflutView.hidden = !isFireflut;
         if (existenceView) existenceView.hidden = !isExistence;
         if (jumpableView) jumpableView.hidden = !isJumpable;
+        const isHome = !isAbout && !isPlayground && !isHatcha && !isFireflut && !isExistence && !isJumpable;
         document.querySelectorAll('.nav-link, .menu-link').forEach(l => {
           const href = l.getAttribute('href') || '';
-          l.classList.toggle('active', (isAbout && (href.endsWith('#about') || href.endsWith('/about'))) ||                                       (isPlayground && (href.endsWith('#playground') || href.endsWith('/playground'))));
+          const active = (isAbout && (href.endsWith('#about') || href.endsWith('/about'))) ||
+                         (isPlayground && (href.endsWith('#playground') || href.endsWith('/playground'))) ||
+                         (isHome && (href.endsWith('#work') || href === '/#work' || href === '/'));
+          l.classList.toggle('active', active);
         });
         // the swapped-in view is a different backdrop under the fixed nav — re-run
         // the contrast check so the nav text/pin/toggle-label recolour to match.
@@ -13011,9 +13012,13 @@
         // resize remeasure and a second batch of contrast timers at every load)
         const isAbout = route.token() === '#about';
         const isPlayground = route.token() === '#playground';
+        const isHome = !isAbout && !isPlayground;
         document.querySelectorAll('.nav-link, .menu-link').forEach(l => {
           const href = l.getAttribute('href') || '';
-          l.classList.toggle('active', (isAbout && (href.endsWith('#about') || href.endsWith('/about'))) ||                                       (isPlayground && (href.endsWith('#playground') || href.endsWith('/playground'))));
+          const active = (isAbout && (href.endsWith('#about') || href.endsWith('/about'))) ||
+                         (isPlayground && (href.endsWith('#playground') || href.endsWith('/playground'))) ||
+                         (isHome && (href.endsWith('#work') || href === '/#work' || href === '/'));
+          l.classList.toggle('active', active);
         });
         [0, 320].forEach(t => setTimeout(() => window.updateNavContrast?.(), t));
         const avatar = document.querySelector('.nav-avatar');
@@ -13025,6 +13030,17 @@
       // run once the shared nav (js/site.js, deferred) has rendered
       document.addEventListener('DOMContentLoaded', wireNav);
       applyAboutRoute();
+
+      // Ensure reliable anchor scroll (e.g. /#work or /work) on first load
+      if (location.hash || route.token() === '#work') {
+        window.addEventListener('DOMContentLoaded', () => {
+          setTimeout(scrollToHashTarget, 80);
+          setTimeout(scrollToHashTarget, 300);
+        });
+        window.addEventListener('load', () => {
+          setTimeout(scrollToHashTarget, 100);
+        });
+      }
 
       // ── experience accordion (single-open) ──
       const items = Array.from(document.querySelectorAll('#about-view .aexp-item'));
